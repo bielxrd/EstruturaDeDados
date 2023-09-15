@@ -7,11 +7,11 @@ public class Vetor {
 
     public Vetor(int tamanho) {
         this.vetor = new int[tamanho];
-        this.quantidade = -1;
+        this.quantidade = 0;
     }
 
     public boolean isEmpty() {
-        if (quantidade == -1) {
+        if (quantidade == 0) {
             return true;
         } else {
             return false;
@@ -26,5 +26,8 @@ public class Vetor {
             return false;
         }
     }
+    
+
+
 
 }
