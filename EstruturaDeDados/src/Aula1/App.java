@@ -1,3 +1,4 @@
+package Aula1;
 import java.util.Scanner;
 
 public class App {
@@ -23,7 +24,8 @@ public class App {
         leitor.close();
 
         // System.out.println(nota.toString());
-        
+
+                
 
     }
 }
