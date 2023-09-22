@@ -33,7 +33,7 @@ public class Teste {
 
         System.out.println(vetor.isFull());
 
-        System.out.println("O indice esta na posicao: "+vetor.acharValor(3));
+        System.out.println("O indice esta na posicao: "+vetor.procurar(3));
         
     }
     
