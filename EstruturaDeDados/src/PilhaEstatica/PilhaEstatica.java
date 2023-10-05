@@ -1,12 +1,52 @@
 package PilhaEstatica;
 
 public class PilhaEstatica {
-    private int vetorPilha[];
+    private int pilhaEstatica[];
     private int topo;
 
     public PilhaEstatica(int maxSize) {
-        this.vetorPilha = new int[maxSize];
+        this.pilhaEstatica = new int[maxSize];
         this.topo = -1;
+    }
+
+    public void push(int x) {
+        if (isFull()) {
+            System.out.println("Pilha cheia!");
+        } else {
+            topo++;
+            pilhaEstatica[topo] = x;
+        }
+    }
+
+    public int peek() {
+        if (isEmpty()) {
+            return -1;
+        } else {
+            return pilhaEstatica[topo];
+        }
+    }
+
+    public int pop() {
+        if (!isEmpty()) {
+            return pilhaEstatica[topo--];
+        } else {
+            return -1;
+        }
+    }
+
+    public String toString() {
+        StringBuilder aux = new StringBuilder();
+
+        aux.append("[");
+        for (int i = 0; i <= topo; i++) {
+            aux.append(pilhaEstatica[i]);
+
+            if (i < topo)
+                aux.append(", ");
+        }
+        aux.append("]");
+        return aux.toString();
+
     }
 
     public boolean isEmpty() {
@@ -16,42 +56,12 @@ public class PilhaEstatica {
             return false;
         }
     }
+
     public boolean isFull() {
-        if (topo == vetorPilha.length - 1) {
+        if (pilhaEstatica.length - 1 == topo) {
             return true;
         } else {
             return false;
         }
     }
-    
-    public void push(int j) {
-        if(isFull()) {
-            System.out.println("Pilha cheia");
-        } else {
-            topo++;
-            vetorPilha[topo] = j;
-        }
-    }
-
-    public int pop() {
-        if(!isEmpty()) {
-            return vetorPilha[topo--];
-        }
-        else {
-            return -1;
-        }
-    }
-
-    public int indexOf(int j) {
-        for (int i = 0; i < vetorPilha.length; i++) {
-            if (vetorPilha[i] == j) {
-                return i;
-            }
-        }
-        return -1;
-    }
-
-    
-
-    
 }
