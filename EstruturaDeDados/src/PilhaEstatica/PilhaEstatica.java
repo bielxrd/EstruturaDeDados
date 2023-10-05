@@ -1,11 +1,15 @@
 package PilhaEstatica;
 
-public class PilhaEstatica {
-    private int pilhaEstatica[];
+public class PilhaEstatica<T> {
+    private Object pilhaEstatica[];
     private int topo;
 
     public PilhaEstatica(int maxSize) {
-        this.pilhaEstatica = new int[maxSize];
+        this.pilhaEstatica = new Object[maxSize];
+        this.topo = -1;
+    }
+    public PilhaEstatica() {
+        this.pilhaEstatica = new Object[10];
         this.topo = -1;
     }
 
@@ -18,19 +22,21 @@ public class PilhaEstatica {
         }
     }
 
-    public int peek() {
+    public T peek() {
+        T elemento;
         if (isEmpty()) {
-            return -1;
+            return null;
         } else {
-            return pilhaEstatica[topo];
+            return elemento = (T) pilhaEstatica[topo];
         }
     }
 
-    public int pop() {
+    public T pop() {
+        T elemento;
         if (!isEmpty()) {
-            return pilhaEstatica[topo--];
+            return elemento = (T) pilhaEstatica[topo--];
         } else {
-            return -1;
+            return null;
         }
     }
 

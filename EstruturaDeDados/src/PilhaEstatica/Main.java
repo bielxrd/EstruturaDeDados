@@ -4,7 +4,7 @@ import java.util.Stack;
 
 public class Main {
     public static void main(String[] args) {
-        PilhaEstatica minhaPilha = new PilhaEstatica(10);
+        PilhaEstatica<Integer> minhaPilha = new PilhaEstatica<Integer>();
 
         minhaPilha.push(20);
         minhaPilha.push(40);
