@@ -38,7 +38,7 @@ public class PilhaExc {
             return vetorPilha[topo--];
         }
         else {
-            return ' ';
+            return '\0';
         }
     }
 
@@ -49,6 +49,9 @@ public class PilhaExc {
             }
         }
         return -1;
+    }
+    public int size() {
+        return vetorPilha.length;
     }
     
 }

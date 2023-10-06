@@ -1,14 +1,18 @@
 package PilhaEstatica.Exercicio;
 
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        PilhaExc minPilhaExc = new PilhaExc(5);
-
-        minPilhaExc.push('k');
-        minPilhaExc.push('a');
-        minPilhaExc.push('u');
-        minPilhaExc.push('a');
-        minPilhaExc.push('n');
+        
+        Scanner ler = new Scanner(System.in);
+        
+        String nome = ler.nextLine();
+        PilhaExc minPilhaExc = new PilhaExc(nome.length());
+        for (int i = 0; i < minPilhaExc.size(); i++) {
+            char x = nome.charAt(i);
+            minPilhaExc.push(x);
+        }
 
         while(!minPilhaExc.isEmpty()) {
             char value = minPilhaExc.pop();
