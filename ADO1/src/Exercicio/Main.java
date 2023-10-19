@@ -1,7 +1,5 @@
 package Exercicio;
 
-import Exercicio.Pilha;
-
 import java.util.Scanner;
 
 public class Main {
@@ -15,8 +13,10 @@ public class Main {
 
         for (int i = 0; i < expressao.length(); i++) {
             Character aux = expressao.charAt(i);
-
-            if (aux == '+' || aux == '*') {
+            if (aux == '+' || aux == '*' || aux == '-' || aux == '/') {
+                while (!minhaPilha.isEmpty() && precedencia(aux) <= precedencia(minhaPilha.peek())) {
+                    saida += minhaPilha.pop();
+                }
                 minhaPilha.push(aux);
             } else if (aux == '(') {
                 minhaPilha.push(aux);
@@ -25,16 +25,26 @@ public class Main {
                     saida += minhaPilha.pop();
                 }
                 if (!minhaPilha.isEmpty() && minhaPilha.peek() == '(') {
-                    minhaPilha.pop(); // Remova o '(' da pilha
-
+                    minhaPilha.pop();
                 }
             } else {
-                saida += aux.toString();
+                saida += aux;
             }
         }
+
         while (!minhaPilha.isEmpty()) {
             saida += minhaPilha.pop();
         }
         System.out.println(saida);
+    }
+
+    public static int precedencia(char aux) {
+        if (aux == '+' || aux == '-') {
+            return 2;
+        } else if (aux == '*' || aux == '/') {
+            return 1;
+        } else {
+            return 0;
+        }
     }
 }

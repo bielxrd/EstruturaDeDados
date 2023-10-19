@@ -20,7 +20,7 @@ public class Pilha<T> {
 
     public T peek() {
         T elemento;
-        if(isEmpty())
+        if (isEmpty())
             return null;
         else {
             return elemento = (T) pilha[topo];
@@ -36,10 +36,9 @@ public class Pilha<T> {
 
     public T pop() {
         T elemento;
-        if(!isEmpty()) {
+        if (!isEmpty()) {
             return elemento = (T) pilha[topo--];
-        }
-        else {
+        } else {
             return null;
         }
     }
@@ -50,5 +49,10 @@ public class Pilha<T> {
         else
             return false;
     }
+
+    public int size() {
+        return pilha.length;
+    }
+
 
 }
