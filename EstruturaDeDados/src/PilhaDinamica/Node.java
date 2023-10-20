@@ -1,11 +1,11 @@
 package PilhaDinamica;
 
-public class Node {
-    public int dado;
+public class Node <T> {
+    public T dado;
     public Node next;
 
-    public Node(int dd) {
-        dado = dd;
+    public Node(T elemento) {
+        dado = elemento;
         next = null;
 
     }
