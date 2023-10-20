@@ -1,6 +1,6 @@
 package PilhaDinamica;
 
-public class PilhaDinamica {
+public class PilhaDinamica<T> {
     private Node topo;
 
     public PilhaDinamica() {
@@ -11,8 +11,8 @@ public class PilhaDinamica {
         return (topo == null);
     }
 
-    public void push(int dd) {
-        Node novoNode = new Node(dd);
+    public void push(T elemento) {
+        Node novoNode = new Node(elemento);
 
         if (novoNode != null) {
             novoNode.next = topo;
@@ -20,13 +20,13 @@ public class PilhaDinamica {
         }
     }
 
-    public int pop() {
+    public T pop() {
         if (isEmpty()) {
-            return -1;
+            return null;
         }
         Node temp = topo;
         topo = topo.next;
-        return temp.dado;
+        return (T) temp.dado;
     }
 
     public void display() {
