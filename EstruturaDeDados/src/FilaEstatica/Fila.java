@@ -1,45 +1,65 @@
 package FilaEstatica;
 
-public class Fila<T> {
-    private Object[] filaEstatica;
+/**
+ * @(#)Fila.java
+ */
+
+
+public class Fila <T> {
+
+    private Object vetorFila[];
     private int fim;
 
     public Fila(int maxSize) {
-        filaEstatica = new Object[maxSize];
+        vetorFila = new Object[maxSize];
         fim = -1;
     }
 
-    public void poll(T elemento) {
-        
-    }
-
-    public T offer() {
-        return (T) filaEstatica[];
-    }
-
+    //Verifica se a Fila esta vazia
     public boolean isEmpty() {
-        if (fim == -1)
-            return true;
-        else
-            return false;
+        return (fim == -1);
     }
 
-    public T peek() {
-        return (T) filaEstatica[0];
-    }
-
+    //Verifica se a Fila esta cheia
     public boolean isFull() {
-        if (fim == filaEstatica.length)
-            return true;
-        else
-            return false;
-
+        return (fim == vetorFila.length - 1);
     }
 
-    public void mostrarPilha() {
-        for (int i = 0; i < filaEstatica.length; i++) {
-            System.out.print(filaEstatica[i] + "-");
+    //Retorna o primeiro elemento da Fila
+    public T peek(){
+        if (!isEmpty())
+            return (T) vetorFila[0];
+        else
+            return null;
+    }
+
+    //Insere elemento na Fila
+    public void enqueue(T elemento){
+        if (!isFull()) {
+            fim++;
+            vetorFila[fim] = elemento;
         }
     }
 
+    //Remove elemento da Fila
+    public T dequeue(){
+        int i;
+        T elemento;
+        if (!isEmpty()) {
+            elemento = (T) vetorFila[0];
+            for (i = 0; i < fim; i++) {
+                vetorFila[i] = vetorFila[i + 1];
+            }
+            fim--;
+            return elemento;
+        } else {
+            return null;
+        }
+    }
+
+    public void mostrarFila() {
+        for (int i = 0; i < vetorFila.length; i++) {
+            System.out.print(vetorFila[i] + "-");
+        }
+    }
 }
