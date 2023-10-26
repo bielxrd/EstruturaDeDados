@@ -2,23 +2,29 @@ package FilaEstatica;
 
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
 
         Fila<Integer> fila = new Fila<>(4);
+        FilaCircular<Integer> filaCircular = new FilaCircular<>(4);
 
-        fila.enqueue(20);
-        fila.enqueue(40);
-        fila.enqueue(60);
-        fila.enqueue(80);
+        filaCircular.enqueue(15);
+        filaCircular.enqueue(30);
+        filaCircular.enqueue(45);
+        filaCircular.enqueue(60);
+        filaCircular.enqueue(150);
+        filaCircular.mostrarFila();
+        filaCircular.dequeue();
 
-        fila.mostrarFila();
-        fila.dequeue();
-        System.out.println();
-        fila.mostrarFila();
+        filaCircular.mostrarFila();
 
+
+     
         System.out.print("\n");
+
+
     }
 
 }
