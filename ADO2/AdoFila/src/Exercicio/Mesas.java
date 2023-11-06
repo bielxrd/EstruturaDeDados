@@ -4,11 +4,12 @@ import java.util.Arrays;
 public class Mesas {
     private int quantidade;
     private String[] mesas;
-    private String nome;
+    private Cliente[] nomes;
 
     public Mesas(int tamanho) {
         this.mesas = new String[tamanho];
         this.quantidade = tamanho;
+        this.nomes = new Cliente[tamanho];
         Arrays.fill(this.mesas, "Disponivel");
     }
 
@@ -24,13 +25,22 @@ public class Mesas {
         this.quantidade = quantidade;
     }
 
-    public void setMesas(String nome, int index) {
+    public void setMesas(Cliente cliente, int index) {
         this.mesas[index] = "Ocupado";
-        this.nome = nome;
+        this.nomes[index] = cliente;
+        this.nomes[index].setMesa(index);
     }
 
-    public String getNome() {
-        return nome;
+    public String getNome(int index) {
+        return this.nomes[index].getNome();
+    }
+
+    public int numeroMesa(int index) {
+        return this.nomes[index].getMesa();
+    }
+
+    public boolean isVip(int index) {
+        return this.nomes[index].isVip();
     }
 
     
