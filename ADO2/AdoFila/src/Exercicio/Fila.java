@@ -42,4 +42,29 @@ public class Fila<T> {
         return (this.inicio == null);
     }
 
+    public int size() {
+        int contador = 0;
+        Node<T> currentNode = inicio;
+    
+        while (currentNode != null) {
+            contador++;
+            currentNode = currentNode.getNext();
+        }
+    
+        return contador;
+    }
+
+    public T get(int position) {
+        if (position < 0 || position >= size()) {
+            throw new IndexOutOfBoundsException("Posição fora dos limites da fila");
+        }
+    
+        Node <T> nodeAtual = inicio;
+        for (int i = 0; i < position; i++) {
+            nodeAtual = nodeAtual.getNext();
+        }
+    
+        return nodeAtual.getElemento();
+    }
+    
 }
