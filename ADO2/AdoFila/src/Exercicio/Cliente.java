@@ -10,6 +10,12 @@ public class Cliente {
         this.vip = isVip;
     }
 
+    public Cliente(String nome, boolean vip, int mesa) {
+        this.nome = nome;
+        this.vip = vip;
+        this.mesa = mesa;
+    }
+
     public Cliente(String nome) {
         this.nome = nome;
     }
