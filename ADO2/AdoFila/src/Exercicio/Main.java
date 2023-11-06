@@ -40,15 +40,30 @@ public class Main {
                 if (opcaoMesas == 1) {
                     mesas.exibirDisponivel(mesas);
 
-                    Cliente cliente = clientesVip.dequeue();
+                    while (!clientesVip.isEmpty()) {
+                        Cliente cliente = clientesVip.dequeue();
 
-                    System.out.println("Escolha a mesa disponivel: ");
-                    int n = ler.nextInt();
+                        System.out.println("Escolha a mesa disponivel: (Cliente " +cliente.getNome()+ ")");
+                        int n = ler.nextInt();
 
-                    mesas.alocarMesa(mesas, cliente, n);
+                        mesas.alocarMesa(mesas, cliente, n);
+                    } 
+
+                    if(clientesVip.isEmpty()) {
+                        System.out.println("Lista vip vazia");
+                        System.out.println("Chamando clientes da lista comum: ");
+                        Cliente cliente = clientesN.dequeue();
+
+                        System.out.println("Escolha a mesa disponivel: (Cliente " +cliente.getNome()+ ")");
+                        int n = ler.nextInt();
+
+                        mesas.alocarMesa(mesas, cliente, n);
+                    }
 
                 } else if (opcaoMesas == 2) {
                     mesas.exibirDisponivel(mesas);
+                } else if(opcaoMesas == 3) {
+                    mesas.acessarMesa(mesas, clientesVip);
                 }
             }
 
@@ -66,6 +81,7 @@ public class Main {
     public static int menuMesas() {
         System.out.println("1. Alocar cliente");
         System.out.println("2. Disponivel");
+        System.out.println("3. Acessar mesa");
         return ler.nextInt();
     }
 
