@@ -74,7 +74,7 @@ public class ListaLigada {
 
     public void print() {
 
-        if(this.isEmpty()) {
+        if (this.isEmpty()) {
             System.out.println("LISTA vazia");
             return;
         }
@@ -88,6 +88,95 @@ public class ListaLigada {
         }
 
         System.out.println("\n");
+    }
+
+    /* Metodos sugeridos pelo professor (exercicios) */
+
+    public int count() {
+        int contador = 0;
+        if (firstNode == null) {
+            return 0;
+        } else {
+            Node atual = firstNode;
+
+            while (atual != null) {
+                atual = atual.getNextNode();
+                contador++;
+            }
+        }
+
+        return contador;
+    }
+
+    public int find(Object item) {
+        if (isEmpty()) {
+            return -1;
+        }
+
+        Node current = firstNode;
+        int pos = 0;
+
+        while (current != null) {
+            if (current.data == item) {
+                return (pos);
+            }
+            current = current.getNextNode();
+            pos++;
+        }
+        return -1;
+    }
+
+    public boolean joinList(ListaLigada listaAux) {
+        if (isEmpty() || listaAux.isEmpty()) {
+            return false;
+        } else {
+            lastNode.nextNode = listaAux.firstNode;
+            lastNode = listaAux.lastNode;
+            return true;
+        }
+    }
+
+    public boolean remove(Object item) {
+        Node atual = firstNode;
+        Node anterior;
+
+        if (firstNode == null) {
+            return false;
+        } else {
+            if (atual.getData() == item) {
+                firstNode = firstNode.getNextNode();
+                return true;
+            } else {
+                anterior = atual;
+                atual = atual.getNextNode();
+                while (atual != null) {
+                    if (atual.getData() == item) {
+                        anterior.nextNode = atual.getNextNode();
+                        return true;
+                    }
+                    anterior = atual;
+                    atual = atual.getNextNode();
+                }
+                return false;
+            }
+
+        }
+
+    }
+
+    public boolean insert(int pos, Object valor) {
+        Node novoNode = new Node(valor);
+        Node atual = firstNode;
+        Node anterior;
+        int contador = 1;
+        int quantidade = count();
+
+        if(quantidade < pos) {
+            return false;
+        }
+        
+
+
     }
 
 }
