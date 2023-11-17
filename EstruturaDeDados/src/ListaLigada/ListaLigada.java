@@ -136,47 +136,72 @@ public class ListaLigada {
         }
     }
 
-    public boolean remove(Object item) {
+    public boolean remove(Object valor) {
         Node atual = firstNode;
         Node anterior;
-
+    
         if (firstNode == null) {
             return false;
         } else {
-            if (atual.getData() == item) {
-                firstNode = firstNode.getNextNode();
+            if (atual.data.equals(valor)) {
+                firstNode = firstNode.nextNode;
                 return true;
             } else {
                 anterior = atual;
-                atual = atual.getNextNode();
+                atual = atual.nextNode;
                 while (atual != null) {
-                    if (atual.getData() == item) {
-                        anterior.nextNode = atual.getNextNode();
+                    if (atual.data.equals(valor)) {
+                        anterior.nextNode = atual.nextNode;
                         return true;
                     }
                     anterior = atual;
-                    atual = atual.getNextNode();
+                    atual = atual.nextNode;
                 }
                 return false;
             }
-
         }
-
     }
 
     public boolean insert(int pos, Object valor) {
+
         Node novoNode = new Node(valor);
+
         Node atual = firstNode;
+
         Node anterior;
-        int contador = 1;
+
+        int contador = 0;
+
         int quantidade = count();
 
         if(quantidade < pos) {
             return false;
         }
-        
 
+        if(pos == 1) {
+            insertAtFront(valor);
+            return true;
+        } else {
+            contador++;
+            anterior = atual;
+            atual = atual.nextNode;
+
+            while(atual.getNextNode() != null) {
+                if(contador == pos) {
+                    anterior.setNextNode(novoNode);
+                    novoNode.setNextNode(atual);
+                    return true;
+                }
+                anterior = atual;
+                atual = atual.nextNode;
+                contador++;
+            }
+            return false;
+        }
 
     }
+    
+
+    
 
 }

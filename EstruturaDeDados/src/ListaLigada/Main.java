@@ -45,5 +45,20 @@ public class Main {
 		lista.remove(200);
 		lista.remove(50);
 		lista.print();
+
+		lista.insertAtBack(50);
+		lista.insertAtBack(100);
+		lista.insertAtBack(150);
+		lista.insertAtBack(200);
+		lista.insertAtBack(250);
+		lista.insert(3, 190);
+
+		lista.print();
+
+		lista.remove(190);
+
+		lista.print();
+
+		
 	}  
 }
