@@ -34,5 +34,16 @@ public class Main {
 		removedObject = lista.removeFromBack();
 		System.out.println(removedObject.toString() + " foi removido" );
 		lista.print();
+
+		lista.insertAtBack(200);
+		lista.insertAtBack(50);
+	
+
+		System.out.println("Quantidade: "+lista.count());
+		System.out.println("Pos na lista: "+lista.find(30));
+		lista.print();
+		lista.remove(200);
+		lista.remove(50);
+		lista.print();
 	}  
 }
