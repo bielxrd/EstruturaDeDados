@@ -2,7 +2,7 @@ package Hash;
 
 import java.util.Objects;
 
-public class Registro<K,V> {
+public class Registro<K, V> {
 
     private K key;
     private V value;
@@ -36,8 +36,24 @@ public class Registro<K,V> {
     }
 
     public int hashCode() {
-        return key.hashCode() % 100;
+        if (key instanceof String) {
+//            return calcularHashString((String) key); Impossivel implementar no momento.
+            return (Integer) key % 100;
+        } else if (key instanceof Integer) {
+            return (Integer) key % 100;
+        } else {
+            return (Integer) key % 100;
+        }
     }
+
+    private int calcularHashString(String str) {
+        int valorHash = 0;
+        for (int i = 0; i < str.length(); i++) {
+            valorHash += (int) (str.charAt(i) * Math.pow(31, str.length() - 1 - i));
+        }
+        return valorHash;
+    }
+
 
     public Registro<K, V> getProximo() {
         return proximo;
