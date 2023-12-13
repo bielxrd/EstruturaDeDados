@@ -3,35 +3,50 @@ package Hash;
 import java.util.Scanner;
 
 public class App {
-    public static <T> void main(String[] args) {
+    public static void main(String[] args) {
 
         Scanner ler = new Scanner(System.in);
 
-        int key;
+        String texto;
+        int chave;
+        int continua = 0;
+        MapaHash<Integer, String> mapaHash = new MapaHash<>();
 
-        Registro r1, r2, r3, r4;
-        MapaHash<Integer, String> mapaHash  = new MapaHash<>();
-
-        mapaHash.put(new Registro<>(5, "Gabriel"));
-        mapaHash.put(new Registro<>(123, "Herison"));
-        mapaHash.put(new Registro<>(987, "Jose"));
-        mapaHash.put(new Registro<>(9832, "Henrique"));
-
-
+        Registro r;
 
         do {
-            System.out.println("Informe um registro");
-            key = ler.nextInt();
-            Registro r = mapaHash.get(key);
+            System.out.println("Digite uma chave");
+            texto = ler.next();
+            chave = Integer.parseInt(texto);
+            System.out.println("Digite um valor");
+            texto = ler.next();
 
-            if (r != null) {
-                System.out.println("Registro: "+r.getKey() + " Value: " + r.getValue() + " HashCode: "+r.hashCode());
-            } else {
-                System.out.println("Registro nao existente");
-                key = -1;
+            r = new Registro(chave, texto);
+
+            mapaHash.put(r);
+
+            System.out.println("Continua (1 - sim) (0 - nao)");
+            continua = Integer.parseInt(ler.next());
+
+        } while (continua != 0);
+
+        System.out.println("---------------");
+
+        do {
+            System.out.println("Digite uma chave");
+            chave = Integer.parseInt(ler.next());
+
+
+            if (chave != -1) {
+                r = mapaHash.get(chave);
+
+                if (r != null) {
+                    System.out.println("Registro = " + r.getValue());
+                } else {
+                    System.out.println("Registro nao existe");
+                }
             }
-        } while(key != -1);
-
+        } while (chave != -1);
 
     }
 }
