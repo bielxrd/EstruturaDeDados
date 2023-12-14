@@ -3,6 +3,10 @@ package BubbleSort;
 public class AlgoritmosDeOrdenacao {
     private int[] vetor = {25, 57, 48, 37, 12, 92, 33};
 
+    public void setVetor(int[] vetor) {
+        this.vetor = vetor;
+    }
+
     public void bubbleSort() {
         int i;
         int pos;
