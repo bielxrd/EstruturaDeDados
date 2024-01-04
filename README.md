@@ -40,7 +40,7 @@ Fique à vontade para explorar, contribuir e utilizar essas implementações em 
 
 - ### [BubbleSort](https://github.com/bielxrd/EstruturaDeDados/blob/main/EstruturaDeDados/src/BubbleSort/AlgoritmosDeOrdenacao.java)
 
-- ### [SelectionSort](https://github.com/bielxrd/EstruturaDeDados/tree/main/EstruturaDeDados/src/SelectionSort)
+- ### [SelectionSort](https://github.com/bielxrd/EstruturaDeDados/tree/main/EstruturaDeDados/src/SelectionSort/SelectionSort.java)
 
 - ### [InsertionSort](https://github.com/bielxrd/EstruturaDeDados/blob/main/EstruturaDeDados/src/InsertionSort/InsertionSort.java)
 
